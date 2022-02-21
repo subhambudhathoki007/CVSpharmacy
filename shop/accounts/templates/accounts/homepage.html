@@ -1,0 +1,205 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+<title>Homepage</title>
+{% endblock title %}
+
+{% block main_content %}
+<section class="main">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-controls">
+
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-image:url({% static 'images/guitar1.jpg' %}) " ></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="background-image:url({% static 'images/guitar2.jpg' %})"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="background-image:url({% static 'images/guitar.jpg' %})"></button>
+        </div>
+
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image:url({% static 'images/product1.jpg' %})">
+
+        </div>
+        <div class="carousel-item" style="background-image:url({% static 'images/product2.jpg' %})">
+
+        </div>
+        <div class="carousel-item" style="background-image:url({% static 'images/product.jpg' %})">
+
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+  </section>
+
+
+
+  <!-- ------------------------------------------------about---------------------------------------------------------------- -->
+  <section id="about" class="about-section" style="background:url({% static 'images/gg.png' %}) no-repeat left; background-size:68%" >
+    <div class="inner-container">
+      <h1>
+        About Us
+        <div class="border">
+
+        </div>
+      </h1>
+      <q>Getting medical supplies to your doorsteps</q><br></br>
+      <p class="text">
+        Basically this is our platform which provides online platform model of pharmacy through which medicines can be delivered easily to your doorsteps and on time. It is named as nepmed and is a website where a user can log in and make a purchase of a medicine such that it makes it easy for the user . Not only during these times of covid but visiting hospital always has some chances of getting various diseases so by the use of our services and by proper sanitization these various problems are mitigated . 
+
+
+      </p>
+      <a href="/about">
+          <button class="btnn" type="submit">Read More
+             <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </button>
+
+        </a>
+
+    </div>
+
+  </section>
+
+
+
+
+<!-- ---------------------------------------------------------Product---------------------------------------------------------- -->
+  <div class="store_image" style=" min-height:35vh;">
+
+            <h1 class="storess mt-5">PRODUCTS</h1>
+                 <p class="pp">Get all the medical and health products</p>
+                  <p class="pp">Best quality and cheapest price guranteed</p>
+
+
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col py-3 py-sm-0">
+
+
+                    <div class="row justify-content-around">
+                         {% for file in files %}
+                        <div class="col-md-4 product-items">
+                            <div class="product">
+
+
+                            <div class="product-content">
+                                <div class = "product-img">
+                                <img src = "/{{file.file}}" alt = "product image">
+                               </div>
+                            </div>
+
+                            <div class="card-body shadow">
+                                <a href = "#" class = "product-name">{{file.title}}</a>
+                                <div class="productp">
+                                    <p>Brands:{{file.brand}}</p>
+                              <p>Price:${{file.price}}</p>
+
+                                </div>
+
+
+                              <a href="/admins/product_detail/{{file.id}}"><button type="button" class="btnn">
+
+                                  VIEW DETAIL
+                                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+
+                            </button></a>
+                                <div class="off-info">
+                                    <h2 class = "sm-title">25% off</h2>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        </div>
+
+                    {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- -------------------------------------------------------Buy Now------------------------------------------------------------ -->
+  <section id="buynow" class="join">
+    <div class="container ">
+      <div class="row">
+
+        <div class="col-sm-6 mt-5 ">
+          <div class="join1">
+            <h1 class="fs-1">CVS pharmacy ensures safety and ease'</h1>
+          <p >We make sure all the delivary personals are well geared and all the products are properly sanitized</p>
+
+          </div>
+          <a href="/admins/show_store">
+            <button class="join_btnn">Shop Now
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </button>
+
+          </a>
+
+        </div>
+        <div class="san col-sm-6  mt-1" >
+          <img src="{% static 'images/join2.png' %}" class="img-fluid" alt="">
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </section>
+
+<!-- ------------------------------------------Brands---------------------------------------- -->
+
+  <section id="brand" class="brands"  >
+    <div class="container">
+      <h1 class="heading text-center font-weight-bold">Brands we are associated</h1>
+      <section class="customer-logos slider">
+          <div class="slide"><img src="{% static 'images/brands1.png' %}" alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/brands2.png' %}" alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/brands3.png' %}"  alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/brands4.png' %}" alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/brands5.png' %}" alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/brands6.png' %}" alt="logo"></div>
+          <div class="slide"><img src="{% static 'images/brands7.png' %}" alt="logo"></div>
+
+      </section>
+  </div>
+  </section>
+
+
+<!-- -----------------------------------------------buy Now------------------------------------------------ -->
+  <section class="buy"  style="  background:linear-gradient(75deg, rgb(6 6 6 / 64%) 8%, transparent),url({% static 'images/now.jpg' %});background-repeat: no-repeat;
+
+    background-attachment: fixed;
+    background-size: cover;
+    height: 75vh;">
+    <div class="buy1">
+        <h1>Buy from CVS pharmacy</h1>
+        <p> Not only that by the help of website and previous orders the consumer can track how further long will the medicine will last and can even track medical history. Along with it another problem is the unavailability of medicines at the stores and variability in the company name and the doses of medicines which might result in its availability but by the use of website user can easily found out and check the availability of the medicine. 
+        </p>
+    </div>
+  </section >
+{% endblock main_content %}
+
+
+

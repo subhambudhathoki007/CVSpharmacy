@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>LoginPage</title>
+{% endblock title %}
+
+{% block main_content %}
+ <div class="login-form">
+        <div class="container mt-5">
+            <div class="main">
+                <div class="content">
+                    {% include 'products/messages.html' %}
+                    <h2>Welcome!</h2>
+                    <h4>Sign in to your Account</h4>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{form_login | bootstrap_horizontal}}
+                        <h5><a class="forget_password" href="/reset_password/">Forget Password?</a></h5>
+                        <a href="/login">
+                            <button class="login-btn" type="submit">Submit</button>
+                        </a>
+                    </form>
+                    <p class="account">Don't have an account?<a href="/register">Sign Up</a></p>
+                </div>
+                <div class="form-img">
+                    <img src="{% static 'images/login.svg' %}">
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+
+    form_fields[1].placeholder = "Enter Username";
+
+    form_fields[2].placeholder = "Enter Password";
+    for (var field in form_fields){
+    form_fields[field].className += ' my-2'
+        }
+</script>
+{% endblock main_content %}

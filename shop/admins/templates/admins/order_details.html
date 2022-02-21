@@ -1,0 +1,61 @@
+{% extends 'layout_admin.html' %}
+{% load static %}
+{% block title %}
+<title>Order History Admin</title>
+{% endblock%}
+{% block main_content %}
+<section class="get_store"  >
+    <div class="container ">
+    <div class="row">
+        <div class="col-md-13 offset-md-1">
+
+            <div class="store  card  px-2 ">
+                <h1 class="text-left">Order history</h1>
+
+                <div class="table-responsive">
+                    <table class="table table-success table-striped table-bordered mt-3">
+                    <tr class="store1">
+                        <th>Customer</th>
+                        <th>Product</th>
+                        <th>Brand</th>
+                        <th>Quantity</th>
+                        <th>Order Id</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Payment Status</th>
+                        <th>Deliver Status</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for file in detail %}
+
+                    <tr class="store2" >
+                        <td>{{file.username}} </td>
+                        <td class="text-uppercase">{{file.title}} </td>
+                        <td>{{file.brand}} </td>
+                        <td>{{file.quantity}} </td>
+                        <td class="text-uppercase" >{{file.orderid}} </td>
+                        <td class="text-uppercase" >{{file.address}} </td>
+                        <td class="text-uppercase" >{{file.city}} </td>
+                        <td class="text-uppercase" >{{file.complete}} </td>
+                        <td class="text-uppercase">{{file.status}}</td>
+                        <td><a href="/guitars/update_status/{{file.orderid}}/1"
+                               class="btn btn-success btn-sm m-2"
+                               ><i class="fa fa-check" aria-hidden="true"></i>
+                            </a>&nbsp;
+                            <a href="/guitars/update_status/{{file.orderid}}/0"
+                               class="btn btn-danger btn-sm m-2"
+                               >
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+<title>About Us page</title>
+{% endblock title %}
+
+{% block main_content %}
+
+    <section class="about">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-controls">
+
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-image:url({% static 'images/guitar.jpg' %})" ></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="background-image:url({% static 'images/guitar2.jpg' %})"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="background-image:url({% static 'images/about4.jpg' %})"></button>
+            </div>
+
+          </div>
+
+
+
+
+          <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image:url({% static 'images/product.jpg' %}) ;">
+
+            </div>
+            <div class="carousel-item" style="background-image:url({% static 'images/product2.jpg' %})">
+
+            </div>
+            <div class="carousel-item" style="background-image:url({% static 'images/about4.jpg' %})">
+
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+      </section>
+
+
+      <section class="aboutus1">
+          <q>Hope for yor faster health recovery</q>
+          <h2>
+            Know Us Bettter
+            <div class="border"></div>
+          </h2><br>
+          <q></q><br></br>
+          <P>Making it directly to your doorsteps at these times of covid</P>
+
+            <p>
+              Basically this is our platform which provides online platform model of pharmacy through which medicines can be delivered easily to your doorsteps and on time. It is named as nepmed and is a website where a user can log in and make a purchase of a medicine such that it makes it easy for the user . Not only during these times of covid but visiting hospital always has some chances of getting various diseases so by the use of our services and by proper sanitization these various problems are mitigated . Not only that by the help of website and previous orders the consumer can track how further long will the medicine will last and can even track medical history. Along with it another problem is the unavailability of medicines at the stores and variability in the company name and the doses of medicines which might result in its availability but by the use of website user can easily found out and check the availability of the medicine. 
+          
+            </p>
+            <P>
+
+            </P>
+
+            <p>Make sure you give our services a go and let us know us your experiences</p>
+
+
+
+
+</section>
+
+{% endblock main_content %}

@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>RegisterPage</title>
+{% endblock title %}
+
+{% block main_content %}
+
+<section class="login">
+
+    <div class="login-form ">
+
+        <div class="container">
+            <div class="main">
+                <div class="content1">
+                    <h2>Register!</h2>
+                    {% include 'products/messages.html' %}
+
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{form_user | bootstrap_horizontal}}
+                        <a href="/login">
+                            <button class="login-btn" type="submit">Register</button>
+
+                        </a>
+
+
+
+
+                    </form>
+                    <p class="account">Already have an account ?<a href="/login">Login</a></p>
+                </div>
+
+                <div class="form-img">
+                    <img src="{% static 'images/register.svg' %}">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = "Enter User Name";
+    form_fields[2].placeholder = "Enter Email address";
+    form_fields[3].placeholder = "Enter Password";
+    form_fields[4].placeholder = "Enter Confirm Password";
+    for (var field in form_fields){
+    form_fields[field].className += ' my-2'
+        }
+</script>
+{% endblock main_content %}

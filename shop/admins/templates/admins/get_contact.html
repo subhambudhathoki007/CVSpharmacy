@@ -1,0 +1,59 @@
+{% extends 'layout_admin.html' %}
+{% load static %}
+{% block title %}
+
+<title>Contact Information</title>
+{% endblock%}
+
+{% block main_content %}
+<section class="get_store"  >
+    <div class="container">
+    <div class="row">
+
+        <div class="col-md-10 offset-md-1">
+
+            <div class="card py-2 px-2">
+                <h1>Inquiry Details</h1>
+
+                <div class="table-responsive">
+                    <table class="table table-success table-striped table-bordered mt-3">
+                    <tr >
+                        <th class="p-4">Firstname</th>
+                        <th class="p-4">Lastname</th>
+                        <th class="p-4">Email</th>
+                        <th class="p-4">Phone-no</th>
+                        <th class="p-4">Messages</th>
+
+                        <th class="p-4">Actions</th>
+                    </tr>
+                    {% for contact in contacts %}
+
+                    <tr>
+                        <td>{{contact.firstname}} </td>
+                        <td>{{contact.lastname}} </td>
+                        <td>{{contact.email}} </td>
+                        <td>{{contact.phone}}</td>
+                        <td>{{contact.message}}</td>
+                         <td>
+                            <a href="/admins/delete_contact/{{contact.id}}"
+                               class="btn btn-danger btn-sm m-3"
+                               onclick="return confirm('Are you sure want to delete this file?')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    </tr>
+                    {% endfor %}
+
+
+                </table>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap%}
+
+{% block title %}
+<title>Contact Us</title>
+{% endblock title %}
+
+{% block main_content %}
+
+    <section class="about">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-controls">
+
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-image:url({% static 'images/product.jpg' %})" ></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="background-image:url({% static 'images/product2.jpg' %})"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="background-image:url({% static 'images/about4.jpg' %})"></button>
+            </div>
+
+          </div>
+
+
+
+
+          <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image:url({% static 'images/product.jpg' %}) ;">
+
+            </div>
+            <div class="carousel-item" style="background-image:url({% static 'images/product2.jpg' %})">
+
+            </div>
+            <div class="carousel-item" style="background-image:url({% static 'images/about4.jpg' %})">
+
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+</section>
+
+<section class="contact-section">
+
+    <div class="contact-body">
+        <h1>CONTACT US</h1>
+        <div class="contact-info">
+
+            <div>
+                <span><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                <span>Email </span>
+                <span class="text">CVSNepal@gmail.com</span>
+            </div>
+
+            <div>
+                <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                <span>Phone no </span>
+                <span class="text">9843949362</span>
+            </div>
+
+            <div>
+                <span><i class="fa fa-facebook" aria-hidden="true"></i></span>
+                <span>Facebook </span>
+                <span class="text">facebook.com/CVSshop</span>
+            </div>
+
+
+
+
+            <div>
+                <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                <span>Delivary time</span>
+                <span class="text">Sunday-Friday (11:00 AM-06:00 PM)</span>
+            </div>
+
+
+        </div>
+
+        <section class="login">
+
+    <div class="login-form ">
+        <h1>Send us message</h1>
+        <p class="text-center">We respect your privacy and promise not to share or misuse your email in any way.</p>
+
+        <div class="container">
+            <div class="main">
+                <div class="content1">
+                    {% include 'guitars/messages.html' %}
+
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{contact | bootstrap_horizontal}}
+                        <a href="/login">
+                            <button class="login-btn" type="submit">
+                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                Send</button>
+
+                        </a>
+
+                    </form>
+
+                </div>
+
+                <div class="form-img">
+                    <img src="{% static 'images/register.svg' %}">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.286252903297!2d85.34067295018953!3d27.677546282719938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb194c2c5d9ef7%3A0xb4eb6bccdc0a5c7!2sATM%20Pharmacy%20-Nepal%20Online%20Pharmacy!5e0!3m2!1sen!2snp!4v1645354301357!5m2!1sen!2snp" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        </div>
+
+
+    </div>
+</section>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'Enter first name';
+    form_fields[2].placeholder = 'Enter last name';
+    form_fields[3].placeholder = 'Enter email';
+    form_fields[4].placeholder = 'Enter phone no';
+
+
+
+    for (var field in form_fields){
+    field.className += ' my-2'
+    }
+
+
+
+</script>
+
+
+
+
+
+
+{% endblock main_content %}

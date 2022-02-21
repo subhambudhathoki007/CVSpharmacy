@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+<title>Product Detail</title>
+{% endblock title %}
+
+{% block main_content %}
+<section class="product_details">
+<section class="container productd  pt-5">
+        <div class="row mt-3">
+            <div class="col-lg-5 col-md-12 col-12">
+
+
+                <img src="/{{file.file}}" alt = "product image" class="img img-fluid shadow w-100" >
+
+            </div>
+
+            <div class="san1 col-lg-5 col-md-12 col-12">
+                <div class="detail1">
+
+                    <h5>{{file.title}}</h5><br>
+                    <h5><i class="fa fa-clock-o" aria-hidden="true"></i>{{file.date}} </h5><br>
+
+                    <h5 class="mt-2">EVENT DETAILS</h5>
+                    <div class="border"></div><br>
+                    <p>{{file.detail}}</p>
+
+
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </section>
+    </section>
+
+{% endblock main_content %}

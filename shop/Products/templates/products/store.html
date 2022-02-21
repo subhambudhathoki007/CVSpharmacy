@@ -1,0 +1,125 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+<title>Store</title>
+{% endblock title %}
+
+{% block main_content %}
+
+    <section class="about">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-controls">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-image:url({% static 'images/guitar.jpg' %})" ></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="background-image:url({% static 'images/guitar2.jpg' %})"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="background-image:url({% static 'images/about4.jpg' %})"></button>
+            </div>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image:url({% static 'images/guitar.jpg' %}) ;">
+
+            </div>
+            <div class="carousel-item" style="background-image:url({% static 'images/guitar2.jpg' %})">
+
+            </div>
+            <div class="carousel-item" style="background-image:url({% static 'images/about4.jpg' %})">
+
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+<!--   products-->
+
+
+        <div class="store_image" style=" min-height:35vh;">
+
+            <h1 class="storess mt-5">PRODUCTS</h1>
+                 <p class="pp">Buy medicine online and get it delivered right at your doorsteps</p>
+                  <p class="pp">Best wuality and cheapest price guranted</p>
+
+
+        </div>
+
+        <div class="card1">
+
+        <div class="card card-body">
+
+                    <form class="form myForm container-fluid" method="get">
+                        {{file_filter.form | bootstrap_horizontal}}
+                        <button class="search1" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+
+        </div>
+        </div>
+
+
+    <div class="productss">
+        <div class="container">
+            <div class="row">
+                <div class="col py-3 py-sm-1">
+
+
+                    <div class="row justify-content-around">
+                         {% for file in files %}
+                        <div class="col-md-4 ">
+                            <div class=" product">
+
+
+                            <div class="product-content">
+                                <div class = "product-img">
+                                <img src = "/{{file.file}}" alt = "product image">
+                               </div>
+                            </div>
+
+                            <div class="card-body shadow">
+                                <a href = "#" class = "product-name">{{file.title}}</a>
+                                <div class="productp">
+                                    <p>Brands:{{file.brand}}</p>
+                              <p>Price:${{file.price}}</p>
+
+                                </div>
+
+
+                              <a href="/admins/product_detail/{{file.id}}"><button type="button" class="btnn">
+
+                                  VIEW DETAIL
+                                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+
+                            </button></a>
+                                <div class="off-info">
+                                    <h2 class = "sm-title">25% off</h2>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        </div>
+                    {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[0].placeholder = "Type to search.....";
+
+
+    for (var field in form_fields){
+    form_fields[field].className += ' my-2'
+        }
+</script>
+{% endblock main_content %}

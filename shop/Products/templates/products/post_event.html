@@ -1,0 +1,47 @@
+{% extends 'layout_admin.html' %}
+{% load bootstrap %}
+{% load static %}
+{% block title %}
+<title>Add Event</title>
+{% endblock%}
+
+{% block main_content %}
+<section class="post_store"  >
+    <div class="container ">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <div class="card p-2">
+                {% include 'guitars/messages.html' %}
+                <h1 >Add Events</h1>
+                <form class="form" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form_file | bootstrap_horizontal}}
+                    <button type="submit" class="post_btnn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<script>
+    var form_fields = document.getElementsByTagName('input')
+
+    form_fields[1].placeholder = "Enter Title";
+
+    form_fields[2].placeholder = "Enter Events";
+    form_fields[3].placeholder = "Enter Date";
+
+
+
+    for (var field in form_fields){
+    form_fields[field].className += ' my-2'
+        }
+
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'layout_admin.html' %}
+{% load bootstrap %}
+{% load static %}
+{% block title %}
+<title>Update Events</title>
+{% endblock%}
+
+{% block main_content %}
+<section class="update_store" >
+    <div class="container ">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <div class="card p-2">
+                {% include 'guitars/messages.html' %}
+                <h1>Update Events</h1>
+                <form class="form" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form_file | bootstrap_horizontal}}
+                    <button type="submit" class="post_btnn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+
+{% endblock %}

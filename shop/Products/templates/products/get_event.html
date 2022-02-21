@@ -1,0 +1,71 @@
+{% extends 'layout_admin.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+
+<title>All Events</title>
+{% endblock%}
+
+{% block main_content %}
+<section class="get_store"  >
+
+    <div class="container ">
+    <div class="row">
+
+        <div class="col-md-10 offset-md-1">
+
+            <div class="store  card py-2 px-2">
+                <h1 class="text-left">Events</h1>
+                 <a class="btn btn-success btn-sm ms-auto mb-2" href="/guitars/post_event/">Add Event</a>
+
+
+
+                <div class="card-body">
+
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-success table-striped table-bordered ">
+                    <tr class="store1">
+                        <th class="py-5">Title</th>
+                        <th class="py-5">Events</th>
+                        <th class="py-5">Date</th>
+                        <th class="store3 py-5">Description</th>
+                        <th class="py-5">Image</th>
+                        <th class="p-5">Actions</th>
+                    </tr>
+                    {% for file in event %}
+
+                    <tr class="store2" >
+                        <td>{{file.title}} </td>
+                        <td>{{file.Events}} </td>
+                        <td>{{file.date}} </td>
+                        <td class="store3 p-4">{{file.detail}}</td>
+                        <td> <img src="/{{file.file}}" alt="file_image" width="100"></td>
+                        <td><a href="/guitars/update_event/{{file.id}}" class="btn btn-primary btn-sm m-2">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a> &nbsp;
+                            <a href="/guitars/delete_event/{{file.id}}"
+                               class="btn btn-danger btn-sm m-2"
+                               onclick="return confirm('Are you sure want to delete this file?')">
+
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a></td>
+
+                    </tr>
+                    {% endfor %}
+
+
+                </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+
+
+{% endblock %}
